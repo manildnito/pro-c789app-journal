@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c789.app · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d2 0%, #f5d6b3 60%, #ecc49f 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #3e3024;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fffbf7;
+            border-radius: 36px;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 40, 0.25),
+                        0 6px 14px rgba(0,0,0,0.05);
+            padding: 3rem 2.8rem;
+            transition: box-shadow 0.2s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        @media (max-width: 520px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #4d3222;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            border-left: 6px solid #dba77b;
+            padding-left: 1.2rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #7a5f4b;
+            margin-bottom: 2.2rem;
+            padding-left: 1.8rem;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 510;
+            color: #4f3422;
+            margin: 2.2rem 0 1rem 0;
+            letter-spacing: -0.01em;
+            display: inline-block;
+            border-bottom: 3px solid #e7c9b0;
+            padding-bottom: 0.25rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            background: #fcf3ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            margin-bottom: 1.8rem;
+            border: 1px solid #eedac9;
+        }
+
+        .highlight-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+            margin: 1.5rem 0 2rem 0;
+            list-style: none;
+        }
+
+        .highlight-list li {
+            background: #f9ede2;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.98rem;
+            border: 1px solid #e5cfbb;
+            color: #3d2d21;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .highlight-list li::before {
+            content: "·";
+            font-weight: 700;
+            color: #b8845d;
+            margin-right: 8px;
+        }
+
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 0.8rem 0 1.8rem 0;
+        }
+
+        .scene-item {
+            background: #fcf6ef;
+            border-radius: 24px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #eadac9;
+            transition: background 0.2s;
+        }
+
+        .scene-item strong {
+            display: block;
+            font-weight: 530;
+            color: #583d2b;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .scene-item span {
+            font-size: 0.95rem;
+            color: #5b4637;
+        }
+
+        @media (max-width: 540px) {
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-item {
+            margin: 1.2rem 0 0.2rem 0;
+        }
+
+        .faq-q {
+            font-weight: 530;
+            color: #4d3424;
+            margin-bottom: 0.1rem;
+            font-size: 1.02rem;
+        }
+
+        .faq-a {
+            font-size: 0.98rem;
+            color: #5d4a3c;
+            padding-left: 0.6rem;
+            border-left: 3px solid #dbb99a;
+            margin-top: 0.2rem;
+            padding-top: 0.1rem;
+        }
+
+        .link-btn {
+            display: inline-block;
+            background: #e6cfba;
+            color: #3d2b1e;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid #d0b49b;
+            transition: background 0.2s, box-shadow 0.15s;
+            letter-spacing: 0.01em;
+            box-shadow: 0 3px 6px rgba(130, 80, 40, 0.08);
+        }
+
+        .link-btn:hover {
+            background: #ddc2a8;
+            box-shadow: 0 5px 12px rgba(130, 80, 40, 0.18);
+            border-color: #bd9b7f;
+        }
+
+        .link-btn:active {
+            background: #cfb395;
+            transform: scale(0.97);
+        }
+
+        .footer-note {
+            margin-top: 2.4rem;
+            font-size: 0.92rem;
+            color: #7a6454;
+            border-top: 1px solid #e6d3c2;
+            padding-top: 1.4rem;
+            text-align: center;
+        }
+
+        a {
+            color: #76543b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #dbb99a;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #4f3220;
+            text-decoration-color: #9c765a;
+        }
+
+        .inline-link {
+            font-weight: 480;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d9bea8, transparent);
+            margin: 2rem 0 1.6rem 0;
+        }
+
+        .small-meta {
+            font-size: 0.85rem;
+            color: #8f7664;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <div class="card">
+        <h1>c789.app</h1>
+        <div class="subhead">一个简洁、克制的信息站点 · 从介绍开始</div>
+
+        <div class="intro">
+            <p>很多时候，我们只是需要一个安静的地方，了解一件事、一个工具或一个站点到底是什么。<strong>c789.app</strong> 正是这样一处存在：它没有浮夸的标语，也没有密集的推送，而是把该说的内容平实地放在那里。下面你会看到这个站点的大致轮廓——它适合哪些场景、有什么特点，以及一些朴素的使用建议。</p>
+        </div>
+
+        <h2>站点摘要</h2>
+        <p>简单来说，<a href="https://pro-c789app.com" class="inline-link">c789.app</a> 是一个围绕实用信息组织的网页。它的设计优先考虑可读性和低干扰，内容上偏向于直接、不绕弯子的说明。无论你是因为什么原因注意到它，都可以把它看作一个可以慢慢翻阅的角落——没有时间压力，也没有隐藏的复杂逻辑。</p>
+
+        <ul class="highlight-list">
+            <li>内容结构清晰，减少不必要的跳转</li>
+            <li>页面风格统一，视觉上偏暖、柔和</li>
+            <li>不收集多余信息，只呈现必要说明</li>
+            <li>适合快速了解某一主题的基本面貌</li>
+        </ul>
+
+        <h2>值得留意的几个特点</h2>
+        <p>在浏览 <a href="https://pro-c789app.com">c789.app</a> 的过程中，你可能会注意到下面这些细节——它们不算突出，但构成了站点的日常使用体验：</p>
+        <div class="scene-grid">
+            <div class="scene-item">
+                <strong>阅读优先</strong>
+                <span>字号、行距、背景都经过微调，更关注文字本身，而不是装饰。</span>
+            </div>
+            <div class="scene-item">
+                <strong>导航简洁</strong>
+                <span>页面数量不多，层级很浅，基本上一两下就能找到想看的地方。</span>
+            </div>
+            <div class="scene-item">
+                <strong>低对比度</strong>
+                <span>没有强烈的黑白反差，采用暖调中性色，长时间看也相对舒服。</span>
+            </div>
+            <div class="scene-item">
+                <strong>无追踪脚本</strong>
+                <span>站点没有嵌入分析工具或第三方追踪，访问记录只留在你自己的设备上。</span>
+            </div>
+        </div>
+
+        <h2>一些使用上的建议</h2>
+        <p>如果你打算花几分钟浏览 <a href="https://pro-c789app.com">c789.app</a>，可以参考这几个小建议：</p>
+        <ul style="margin-left: 1.6rem; margin-bottom: 1.6rem; color: #4f3b2d;">
+            <li>不必一次读完所有内容——页面结构允许你随时暂停，下次接着看。</li>
+            <li>如果遇到不太理解的部分，可以放慢速度，或者先看 FAQ 摘要（下面有一些）。</li>
+            <li>站点没有推送通知，也没有倒计时或弹窗，可以按照自己的节奏来。</li>
+            <li>移动端阅读体验和桌面端基本一致，横竖屏都可以正常浏览。</li>
+        </ul>
+
+        <hr>
+
+        <h2>FAQ 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">c789.app 主要提供什么？</div>
+            <div class="faq-a">它更像一个介绍性站点，展示特定主题下的基础信息和背景说明，不涉及交易、下载或复杂功能。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要注册或登录？</div>
+            <div class="faq-a">不需要。站点所有内容都是公开可见的，没有账号体系，也不要求留下任何个人信息。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容会频繁更新吗？</div>
+            <div class="faq-a">更新节奏比较平稳，通常只在信息需要补充或修正时才会改动，不会为了更新而更新。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">链接到其他网站吗？</div>
+            <div class="faq-a">偶尔会引用外部来源，但数量很少。最主要的链接就是主域名 <a href="https://pro-c789app.com">c789.app</a> 本身，指向站内核心页面。</div>
+        </div>
+
+        <div style="text-align: center; margin: 2.6rem 0 0.4rem 0;">
+            <a href="https://pro-c789app.com" class="link-btn">c789.app</a>
+        </div>
+        <div class="small-meta" style="text-align: center; margin-top: 0.2rem;">
+            · 无广告 · 无弹窗 · 无追踪 ·
+        </div>
+
+        <div class="footer-note">
+            <span>最后更新：2025 · 一个不起眼但认真的站点</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
